@@ -1,0 +1,30 @@
+/* Basic reset for box-sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Just for better visualization */
+  display: flex; /* Use flexbox for layout */
+}
+
+aside {
+  width: 25%; /* 1/4 of the page width */
+  background-color: #f4f4f4; /* Light gray background for visualization */
+  height: 100vh; /* Full viewport height */
+  padding: 20px; /* Some padding for content */
+  overflow-y: auto; /* Scroll if content exceeds the height */
+}
+
+main {
+  width: 75%; /* 3/4 of the page width */
+  background-color: #e9ecef; /* Slightly different gray for visualization */
+  height: 100vh; /* Full viewport height */
+}
+
+nav {
+  background-color: #ddd; /* Another shade of gray for the nav inside main */
+  padding: 20px; /* Some padding for content */
+}
