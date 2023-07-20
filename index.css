@@ -1,30 +1,61 @@
-/* Basic reset for box-sizing */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
 }
 
 body {
-  font-family: Arial, sans-serif; /* Just for better visualization */
-  display: flex; /* Use flexbox for layout */
+  font-family: Arial, sans-serif;
+  display: flex;
+  overflow-x: hidden;
+}
+aside {
+  /* Remove the width property */
+  background-color: #f4f4f4;
+  height: 100vh;
+  padding: 10px;
+  overflow-y: auto;
+  transition: width 0.3s ease;
 }
 
-aside {
-  width: 25%; /* 1/4 of the page width */
-  background-color: #f4f4f4; /* Light gray background for visualization */
-  height: 100vh; /* Full viewport height */
-  padding: 20px; /* Some padding for content */
-  overflow-y: auto; /* Scroll if content exceeds the height */
+aside.closed .text {
+  display: none;
 }
 
 main {
-  width: 75%; /* 3/4 of the page width */
-  background-color: #e9ecef; /* Slightly different gray for visualization */
-  height: 100vh; /* Full viewport height */
+  flex: 1;
+  background-color: #e9ecef;
 }
 
-nav {
-  background-color: #ddd; /* Another shade of gray for the nav inside main */
-  padding: 20px; /* Some padding for content */
+#toggleSidebar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  outline: none;
+}
+
+.line {
+  background-color: #333;
+  height: 3px;
+  width: 25px;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+.burger.open .line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.open .line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
