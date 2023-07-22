@@ -8,57 +8,133 @@
   </head>
   <body>
     <aside class="closed">
-      <button id="toggleSidebar" class="burger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+      <button id="toggleSidebar" class="menu-item">
+        <img src="/assets/menu.png" class="icon" alt="menu logo" />
+        <span class="text">Dashboard</span>
       </button>
-
-      <div>logo</div>
-
       <ul>
         <li class="menu-item">
-          <span>logo</span>
-          <span class="text">menu</span>
+          <img src="/assets/accueil.png" class="icon" alt="home icon" />
+          <span class="text">Home</span>
         </li>
         <li class="menu-item">
-          <span>logo</span>
-          <span class="text">menu</span>
+          <img src="/assets/profil.png" class="icon" alt="profile icon" />
+          <span class="text">Profile</span>
         </li>
         <li class="menu-item">
-          <span>logo</span>
-          <span class="text">menu</span>
+          <img src="/assets/message.png" class="icon" alt="messages icon" />
+          <span class="text">Messages</span>
         </li>
         <li class="menu-item">
-          <span>logo</span>
-          <span class="text">menu</span>
+          <img
+            src="/assets/time-and-date.png"
+            class="icon"
+            alt="history icon"
+          />
+          <span class="text">History</span>
+        </li>
+        <li class="menu-item">
+          <img src="/assets/presse-papiers.png" class="icon" alt="tasks icon" />
+          <span class="text">Tasks</span>
+        </li>
+        <li class="menu-item">
+          <img
+            src="/assets/silhouette-dutilisateurs-multiples.png"
+            class="icon"
+            alt="communities icon"
+          />
+          <span class="text">Communities</span>
         </li>
       </ul>
       <ul>
-        <li class="settings-item">
-          <span>logo</span>
-          <span class="text">settings</span>
+        <li class="menu-item">
+          <img src="/assets/reglage.png" class="icon" alt="settings icon" />
+          <span class="text">Settings</span>
         </li>
-        <li class="settings-item">
-          <span>logo</span>
-          <span class="text">settings</span>
+        <li class="menu-item">
+          <img
+            src="/assets/question-signe-en-cercles.png"
+            class="icon"
+            alt="support icon"
+          />
+          <span class="text">Support</span>
         </li>
-        <li class="settings-item">
-          <span>logo</span>
-          <span class="text">settings</span>
-        </li>
-        <li class="settings-item">
-          <span>logo</span>
-          <span class="text">settings</span>
+        <li class="menu-item">
+          <img src="/assets/shield-check.png" class="icon" alt="privacy icon" />
+          <span class="text">Privacy</span>
         </li>
       </ul>
     </aside>
     <main>
       <nav>
-        <div>searchbar</div>
+        <img src="/assets/loupe.png" alt="search icon" class="icon" />
+        <input type="text" placeholder="Search..." />
+        <img src="/assets/bell.png" class="icon" alt="notification bell" />
+        <img src="/assets/avatar.png" alt="profile picture" class="icon" />
+        <span style="margin-left: 10px">John Doe</span>
       </nav>
-      <header>header</header>
-      <section>content goes here</section>
+
+      <header>
+        <!-- First Position: Avatar, Welcome Message, and User Info -->
+        <div class="avatar-container">
+          <img
+            src="/assets/avatar.png"
+            alt="profile picture"
+            class="avatar-larger"
+          />
+
+          <div class="welcome-and-userinfo">
+            <span class="welcome-message">Welcome!</span>
+
+            <div class="name-username">
+              <span class="name">Firstname Lastname</span>
+              <span class="username">@username</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Position: Buttons -->
+        <div class="header-buttons">
+          <button class="header-btn">New</button>
+          <button class="header-btn">Upload</button>
+          <button class="header-btn">Share</button>
+        </div>
+      </header>
+
+      <section class="content-grid">
+        <!-- Your Projects -->
+        <div class="projects">
+          <h2>Your Projects</h2>
+          <ul>
+            <li>Project 1</li>
+            <li>Project 2</li>
+            <li>Project 3</li>
+            <li>Project 4</li>
+            <li>Project 5</li>
+            <li>Project 6</li>
+          </ul>
+        </div>
+
+        <!-- Announcements -->
+        <div class="announcements">
+          <h2>Announcements</h2>
+          <ul>
+            <li>Announcement 1</li>
+            <li>Announcement 2</li>
+            <li>Announcement 3</li>
+          </ul>
+        </div>
+
+        <!-- Trending -->
+        <div class="trending">
+          <h2>Trending</h2>
+          <ul>
+            <li>Trend 1</li>
+            <li>Trend 2</li>
+            <li>Trend 3</li>
+          </ul>
+        </div>
+      </section>
     </main>
     <script src="index.js"></script>
   </body>

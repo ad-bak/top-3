@@ -1,3 +1,9 @@
+:root {
+  --sidebar-padding: 10px;
+  --menu-icon-size: 25px;
+  --transition-duration: 0.3s;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,62 +19,229 @@ body {
   display: flex;
   overflow-x: hidden;
 }
-aside {
-  background-color: #f4f4f4;
-  height: 100vh;
-  padding: 10px;
-  overflow-y: auto;
-  transition: width 0.3s ease;
-}
-
-aside.closed .text {
-  display: none;
-}
-
 main {
-  flex: 1;
-  background-color: #e9ecef;
+  width: 100%;
+}
+
+aside {
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 105, 221, 0.9),
+    rgba(20, 125, 241, 0.7)
+  );
+  backdrop-filter: blur(12px);
+  width: min-content;
+  max-width: 200px;
+  height: 100vh;
+  overflow-y: auto;
+  transition: width var(--transition-duration) ease;
+  color: white;
+}
+
+aside.closed {
+  transform: translateX(0);
+  width: calc(var(--menu-icon-size) + 2 * var(--sidebar-padding));
+}
+
+aside > * {
+  color: white;
+}
+
+aside ul {
+  margin-top: 7vh;
+}
+
+.icon {
+  width: var(--menu-icon-size);
+  height: var(--menu-icon-size);
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  transition: all var(--transition-duration) ease;
+  padding: 10px;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #toggleSidebar {
   background: none;
   border: none;
   cursor: pointer;
-
   position: relative;
   outline: none;
+  border-bottom: 1px solid white;
+  width: 100%;
 }
 
-.line {
-  background-color: #333;
-  height: 3px;
-  width: 25px;
-  margin: 4px 0;
-  transition: all 0.3s ease;
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
 }
 
-.burger.open .line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+.menu-item:active {
+  transform: translateY(0);
 }
 
-.burger.open .line:nth-child(2) {
-  opacity: 0;
+.menu-item .text {
+  transform: translateX(100%);
+  display: inline-block;
+  transition: transform var(--transition-duration) ease;
 }
 
-.burger.open .line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+aside:not(.closed) .menu-item .text {
+  transform: translateX(0);
 }
-/* ... existing styles ... */
 
-aside {
-  background-color: #f4f4f4;
-  width: 200px;
-  height: 100vh;
+nav {
+  flex: 1; /* This will make nav take up the remaining space in the flex container */
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+nav input[type="text"] {
+  flex-grow: 1;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 15px;
+}
+
+.icon:hover {
+  opacity: 0.7;
+}
+@media (max-width: 768px) {
+  aside {
+    overflow-y: scroll;
+    width: 80%;
+  }
+  .text {
+    font-size: 18px;
+  }
+}
+
+header {
+  background-color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  background-color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* this determines the spacing between the avatar, welcome message, and name details */
+}
+
+.avatar-larger {
+  width: 40px; /* Adjust as necessary */
+  height: 40px; /* Adjust as necessary */
+  border-radius: 50%; /* To make it circular */
+}
+
+.welcome-message {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.name-username {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.username {
+  font-size: 14px;
+  color: #888;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.header-btn {
+  background-color: #0a69dd; /* blue color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.header-btn:hover {
+  background-color: #0858a9; /* slightly darker blue */
+}
+
+.header-btn:active {
+  transform: scale(0.95);
+}
+
+.welcome-and-userinfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.name-username {
+  gap: 5px;
+}
+
+section {
+  padding: 20px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* 2 parts for projects and 1 part for announcements and trending */
+  gap: 20px; /* spacing between the columns */
+}
+
+.projects,
+.announcements,
+.trending {
   padding: 10px;
-  overflow-y: auto;
-  transition: width 0.3s ease;
+  border: 1px solid #e0e0e0;
 }
 
-aside.closed {
-  width: 50px;
+.projects ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two columns for projects */
+  gap: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr; /* stack everything on top of each other */
+  }
 }
