@@ -1,39 +1,60 @@
+html {
+  height: 100%;
+}
+
+/* Root Variables */
 :root {
   --sidebar-padding: 10px;
   --menu-icon-size: 25px;
   --transition-duration: 0.3s;
 }
 
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-li {
-  list-style: none;
-}
-
 body {
   font-family: Arial, sans-serif;
   display: flex;
   overflow-x: hidden;
+  height: 100%;
 }
-main {
-  width: 100%;
+button {
+  color: white;
+}
+li {
+  list-style: none;
 }
 
+/* Main Layout */
+main {
+  width: 100%;
+  height: 100%;
+}
+
+/* Header Styles */
+header {
+  background-color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Aside (Sidebar) Styles */
 aside {
-  overflow: hidden;
   background: linear-gradient(
     to bottom,
     rgba(10, 105, 221, 0.9),
     rgba(20, 125, 241, 0.7)
   );
   backdrop-filter: blur(12px);
-  width: min-content;
+  width: 190px;
   max-width: 200px;
-  height: 100vh;
   overflow-y: auto;
   transition: width var(--transition-duration) ease;
   color: white;
@@ -44,14 +65,31 @@ aside.closed {
   width: calc(var(--menu-icon-size) + 2 * var(--sidebar-padding));
 }
 
-aside > * {
-  color: white;
-}
-
 aside ul {
   margin-top: 7vh;
 }
 
+/* Navigation Styles */
+nav {
+  flex: 1;
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav input[type="text"] {
+  flex-grow: 1;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 15px;
+}
+
+/* Icon Styles */
 .icon {
   width: var(--menu-icon-size);
   height: var(--menu-icon-size);
@@ -60,6 +98,11 @@ aside ul {
   transition: all var(--transition-duration) ease;
 }
 
+.icon:hover {
+  opacity: 0.7;
+}
+
+/* Menu Item Styles */
 .menu-item {
   display: flex;
   align-items: center;
@@ -68,16 +111,6 @@ aside ul {
   padding: 10px;
   flex-shrink: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#toggleSidebar {
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  outline: none;
-  border-bottom: 1px solid white;
-  width: 100%;
 }
 
 .menu-item:hover {
@@ -99,72 +132,28 @@ aside:not(.closed) .menu-item .text {
   transform: translateX(0);
 }
 
-nav {
-  flex: 1; /* This will make nav take up the remaining space in the flex container */
-  background-color: white;
-  padding: 10px 20px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 15px;
-}
-
-nav input[type="text"] {
-  flex-grow: 1;
+/* Toggle Sidebar */
+#toggleSidebar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  border-bottom: 1px solid white;
   width: 100%;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-right: 15px;
 }
 
-.icon:hover {
-  opacity: 0.7;
-}
-@media (max-width: 768px) {
-  aside {
-    overflow-y: scroll;
-    width: 80%;
-  }
-  .text {
-    font-size: 18px;
-  }
-}
-
-header {
-  background-color: white;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-header {
-  background-color: white;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
+/* User Avatar & Info */
 .avatar-container {
   display: flex;
   align-items: center;
-  gap: 20px; /* this determines the spacing between the avatar, welcome message, and name details */
+  gap: 20px;
 }
 
 .avatar-larger {
-  width: 40px; /* Adjust as necessary */
-  height: 40px; /* Adjust as necessary */
-  border-radius: 50%; /* To make it circular */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .welcome-message {
@@ -189,7 +178,7 @@ header {
 }
 
 .header-btn {
-  background-color: #0a69dd; /* blue color */
+  background-color: #0a69dd;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -199,21 +188,11 @@ header {
 }
 
 .header-btn:hover {
-  background-color: #0858a9; /* slightly darker blue */
+  background-color: #0858a9;
 }
 
 .header-btn:active {
   transform: scale(0.95);
-}
-
-.welcome-and-userinfo {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.name-username {
-  gap: 5px;
 }
 
 section {
@@ -222,26 +201,245 @@ section {
 
 .content-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* 2 parts for projects and 1 part for announcements and trending */
-  gap: 20px; /* spacing between the columns */
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "projects announcements"
+    "projects trending";
+  gap: 20px;
 }
 
-.projects,
-.announcements,
+.projects {
+  grid-area: projects;
+}
+
+.announcements {
+  grid-area: announcements;
+}
+
 .trending {
-  padding: 10px;
-  border: 1px solid #e0e0e0;
+  grid-area: trending;
 }
 
-.projects ul {
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px !important;
+}
+
+.right-menu > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  border: 1px solid #ccc;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* two columns for projects */
-  gap: 15px;
+  grid-template-columns: 1fr; /* Default to one column */
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Responsive */
+.card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative; /* relative positioning for the icons to be absolute */
+}
+
+.title,
+.description {
+  margin-bottom: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.icon {
+  width: 24px; /* Adjust based on the size you prefer */
+  height: auto;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+/* Media Query for larger screens */
+@media screen and (min-width: 768px) {
+  /* adjust the breakpoint as needed */
+  .container ul {
+    grid-template-columns: repeat(2, 1fr); /* Two column layout */
+  }
+}
+
+.trending ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.trending li {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  margin: 0;
+  padding: 5px 10px;
+}
+
+.avatar {
+  width: 40px; /* Adjust as per your requirement */
+  height: 40px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.announcements {
+  background-color: white !important;
+  border-radius: 10px;
+  padding: 15px 10px;
+}
+
+.trending {
+  background-color: white !important;
+  border-radius: 10px;
+  padding: 15px 10px;
+}
+
+.trending ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.trending ul li img {
+  margin-right: 10px;
+}
+
+.announcements div ul li {
+  display: flex;
+  flex-direction: column !important;
+  align-items: center;
+}
+
+.announcements-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.announcement-item {
+  margin-bottom: 10px; /* or any desired spacing */
+}
+
+.announcements-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.announcement-item {
+  padding: 10px 15px; /* Add padding for spacing around the text */
+  background-color: #f8f8f8; /* A light gray background for each item */
+  border-bottom: 1px solid #e0e0e0; /* Add a border at the bottom of each item */
+  transition: background-color 0.3s ease; /* Transition effect for hover */
+}
+
+/* Remove the border from the last item */
+.announcement-item:last-child {
+  border-bottom: none;
+}
+
+/* A hover effect to make items interactive */
+.announcement-item:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+/* You can also consider adding a subtle box-shadow */
+.announcement-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 768px) {
+  aside {
+    width: 100%; /* Set width to 100% on mobile devices */
+    height: auto;
+    position: static; /* Reset position if it's set to something like "fixed" or "absolute" */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%; /* Make cards take full width on mobile devices */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin-bottom: 20px; /* Add some space between stacked cards */
+  }
+
   .content-grid {
-    grid-template-columns: 1fr; /* stack everything on top of each other */
+    overflow: hidden; /* Hide any content that overflows the container */
+    padding: 10px; /* Add some padding if needed */
+  }
+}
+
+@media (max-width: 768px) {
+  aside.closed {
+    width: 100%;
+    display: block; /* Ensure it's visible */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+
+  .content-grid {
+    overflow: auto; /* Ensures that if there's any overflow, it becomes scrollable rather than hiding or breaking the layout */
+  }
+}
+
+/* Ensure the sidebar is visible on mobile */
+@media (max-width: 768px) {
+  aside.closed {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Fix for projects on mobile */
+@media (max-width: 768px) {
+  /* Stack grid items vertically */
+  .content-grid {
+    display: block;
+  }
+
+  /* Ensure the card fits its container */
+  .card {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Check any other child elements of .content-grid */
+  .content-grid > * {
+    width: 100%;
   }
 }
